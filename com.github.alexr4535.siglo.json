@@ -1,10 +1,10 @@
 {
-    "app-id" : "com.github.alexr4535.siglo",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "40",
-    "sdk" : "org.gnome.Sdk",
-    "command" : "siglo",
-    "finish-args" : [
+    "app-id": "com.github.alexr4535.siglo",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "40",
+    "sdk": "org.gnome.Sdk",
+    "command": "siglo",
+    "finish-args": [
         "--allow=bluetooth",
         "--share=network",
         "--share=ipc",
@@ -12,7 +12,7 @@
         "--system-talk-name=org.bluez",
         "--socket=wayland"
     ],
-    "cleanup" : [
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -23,18 +23,18 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
+    "modules": [
         "python3-modules.json",
         {
-            "name" : "siglo",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "siglo",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://github.com/alexr4535/siglo",
-                    "tag" : "v0.8.12",
-                    "commit" : "1e830f913801d1aacc164e8f5f5f42d806ce8da0",
+                    "type": "git",
+                    "url": "https://github.com/alexr4535/siglo",
+                    "tag": "v0.8.13",
+                    "commit": "19582c2eb680b0cf30b066ca1f09a394e4b07ded",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 229422,
