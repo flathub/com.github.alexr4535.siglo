@@ -33,8 +33,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexr4535/siglo",
-                    "tag": "v0.8.13",
-                    "commit": "19582c2eb680b0cf30b066ca1f09a394e4b07ded",
+                    "tag": "v0.8.14",
+                    "commit": "7eddd3c12d10cb556b1a311881b459d2e8e6f559",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 229422,
