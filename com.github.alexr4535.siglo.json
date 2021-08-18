@@ -36,10 +36,9 @@
                     "tag": "v0.8.14",
                     "commit": "7eddd3c12d10cb556b1a311881b459d2e8e6f559",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 229422,
-                        "stable-only": true,
-                        "tag-template": "v$version"
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$",
+                        "version-scheme": "semantic"
                     }
                 }
             ]
