@@ -36,9 +36,11 @@
                     "tag": "v0.8.14",
                     "commit": "7eddd3c12d10cb556b1a311881b459d2e8e6f559",
                     "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$",
-                        "version-scheme": "semantic"
+                        "type": "json",
+                        "url": "https://api.github.com/repos/alexr4535/siglo/releases/latest",
+                        "tag-query": ".tag_name",
+                        "version-query": ".tag_name | sub(\"^v\"; \"\")",
+                        "timestamp-query": ".published_at"
                     }
                 }
             ]
