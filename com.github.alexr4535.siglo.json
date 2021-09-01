@@ -33,8 +33,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexr4535/siglo",
-                    "tag": "v0.8.14",
-                    "commit": "7eddd3c12d10cb556b1a311881b459d2e8e6f559",
+                    "tag": "v0.9.0",
+                    "commit": "65fb60babef8e9ac199e25bf36c630eba5a53d7f",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/alexr4535/siglo/releases/latest",
