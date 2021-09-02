@@ -33,13 +33,14 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexr4535/siglo",
-                    "tag": "v0.8.13",
-                    "commit": "19582c2eb680b0cf30b066ca1f09a394e4b07ded",
+                    "tag": "v0.9.0",
+                    "commit": "65fb60babef8e9ac199e25bf36c630eba5a53d7f",
                     "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 229422,
-                        "stable-only": true,
-                        "tag-template": "v$version"
+                        "type": "json",
+                        "url": "https://api.github.com/repos/alexr4535/siglo/releases/latest",
+                        "tag-query": ".tag_name",
+                        "version-query": ".tag_name | sub(\"^v\"; \"\")",
+                        "timestamp-query": ".published_at"
                     }
                 }
             ]
