@@ -1,0 +1,45 @@
+name: Auto update
+
+env:
+  BUILDER_TOOLS_URL: https://github.com/flatpak/flatpak-builder-tools.git
+  BUILDER_TOOLS_BRANCH: master
+
+on:
+  schedule:
+    - cron: '45 6 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-40
+      options: --privileged
+    steps:
+      - name: Install dependencies
+        run: sudo dnf -y install jq python3-requirements-parser
+
+      - uses: actions/checkout@v2
+
+      - name: Download flatpak-builder-tools
+        run: |
+          git clone -b ${BUILDER_TOOLS_BRANCH} \
+                       ${BUILDER_TOOLS_URL} \
+                       flatpak-builder-tools
+
+      - name: Update the Python dependencies
+        run: |
+          set -e
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config user.name "Workflow trigger"
+          git switch -c update-python-modules-$(git rev-parse --short HEAD)
+          sdk = $(jq -r .sdk com.github.alexr4535.siglo.json)
+          runtime_version = $(jq -r '."runtime-version"' com.github.alexr4535.siglo.json)
+          python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime $(sdk)//$(runtime_version) dbus-python gatt pyxdg requests
+          git diff --staged --quiet
+          if test $? -ne 0
+          then
+            git add -- python3-modules.json
+            git commit -m "Update the Python dependencies"
+            git push https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}
+          fi
