@@ -17,7 +17,9 @@ jobs:
       options: --privileged
     steps:
       - name: Install dependencies
-        run: sudo dnf -y install jq python3-requirements-parser
+        run: |
+          sudo dnf -y install jq
+          pip3 install requirements-parser
 
       - uses: actions/checkout@v2
 
