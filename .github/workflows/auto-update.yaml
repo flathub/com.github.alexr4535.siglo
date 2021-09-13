@@ -18,8 +18,9 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo dnf -y install jq
-          pip3 install requirements-parser
+          sudo dnf -y install jq python3-pip
+          python3 -m pip install requirements-parser
+          python3 -m pip install yq
 
       - uses: actions/checkout@v2
 
