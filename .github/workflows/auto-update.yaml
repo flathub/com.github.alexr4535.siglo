@@ -20,7 +20,6 @@ jobs:
         run: |
           sudo dnf -y install jq python3-pip
           python3 -m pip install requirements-parser
-          python3 -m pip install yq
 
       - uses: actions/checkout@v2
 
@@ -36,9 +35,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config user.name "Workflow trigger"
           git switch -c update-python-modules-$(git rev-parse --short HEAD)
-          sdk = $(jq -r .sdk com.github.alexr4535.siglo.json)
-          runtime_version = $(jq -r '."runtime-version"' com.github.alexr4535.siglo.json)
-          python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime $(sdk)//$(runtime_version) dbus-python gatt pyxdg requests
+          python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime $(jq -r .sdk com.github.alexr4535.siglo.json)//$(jq -r '."runtime-version"' com.github.alexr4535.siglo.json) dbus-python gatt pyxdg requests
           git diff --staged --quiet
           if test $? -ne 0
           then
