@@ -44,9 +44,9 @@ Clone the `flatpak-builder-tools` repository.
 
     git clone https://github.com/flatpak/flatpak-builder-tools.git
 
-Now run the Flatpak Pip Generator script for the packages `dbus-python`, `gatt`, `requests`, and `pyxdg`.
+Now run the Flatpak Pip Generator script for the packages `dbus-python`, `gatt`, and `requests`.
 
-    python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime org.gnome.Sdk//40 dbus-python gatt requests pyxdg
+    python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime org.gnome.Sdk//40 dbus-python gatt requests
 
 If you have `org.gnome.Sdk//40` installed in *both* the user and system installations, the Flatpak Pip Generator will choke generating the manifest.
 The best option at the moment is to temporarily remove either the user or the system installation until this issue is fixed upstream.
