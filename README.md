@@ -7,8 +7,8 @@ These instructions assume that you have already installed Flatpak on your system
 
 Get the source code.
 
-    git clone https://github.com/flathub/com.github.alexr4535.siglo.git
-    cd com.github.alexr4535.siglo
+    git clone https://github.com/flathub/com.github.theironrobin.siglo.git
+    cd com.github.theironrobin.siglo
 
 Add the Flathub repository.
 
@@ -20,11 +20,11 @@ Install Flatpak Builder.
 
 Build the Flatpak.
 
-    flatpak-builder --user --install --install-deps-from=flathub --force-clean --repo=repo build-dir com.github.alexr4535.siglo.yaml
+    flatpak-builder --user --install --install-deps-from=flathub --force-clean --repo=repo build-dir com.github.theironrobin.siglo.yaml
 
 Run the Flatpak.
 
-    flatpak run com.github.alexr4535.siglo
+    flatpak run com.github.theironrobin.siglo
 
 ## Update
 
