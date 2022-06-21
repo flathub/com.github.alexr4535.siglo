@@ -35,7 +35,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config user.name "Workflow trigger"
           git switch -c update-python-modules-$(git rev-parse --short HEAD)
-          python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime $(jq -r .sdk com.github.theironrobin.siglo.json)//$(jq -r '."runtime-version"' com.github.theironrobin.siglo.json) dbus-python gatt pyxdg requests
+          python3 flatpak-builder-tools/pip/flatpak-pip-generator --runtime $(jq -r .sdk com.github.theironrobin.siglo.json)//$(jq -r '."runtime-version"' com.github.theironrobin.siglo.json) dbus-python gatt requests
           git diff --staged --quiet
           if test $? -ne 0
           then
