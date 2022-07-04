@@ -5,8 +5,6 @@ env:
   BUILDER_TOOLS_BRANCH: master
 
 on:
-  schedule:
-    - cron: '45 6 * * *'
   workflow_dispatch: {}
 
 jobs:
